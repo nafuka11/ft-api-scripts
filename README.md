@@ -1,4 +1,4 @@
-# ft-api-playground
+# ft-api-scripts
 
 42 APIで遊ぶためのスクリプト集。
 
