@@ -5,6 +5,7 @@ from typing import Optional
 
 from dotenv import load_dotenv
 from FtApi import FtApi
+from FtApi.FtApi import HttpMethod
 
 
 class FtApiClient:
@@ -29,12 +30,19 @@ class FtApiClient:
 
     def get_scale_teams(self, kwargs: dict) -> list:
         request = self.ft_api.Scale_teams(**kwargs)
-        scale_teams_list = []
+        return self._get_resources(request)
+
+    def get_user_scale_teams(self, user_id, kwargs: dict) -> list:
+        request = self.ft_api.UsersScale_teams(user_id, **kwargs)
+        return self._get_resources(request)
+
+    def _get_resources(self, request: HttpMethod) -> list:
+        resources = []
         while True:
             self.sleep()
-            scale_teams = request.Get()
-            scale_teams_list += scale_teams
-            if len(scale_teams) != request.page["size"]:
+            resource = request.Get()
+            resources += resource
+            if len(resource) != request.page["size"]:
                 break
-            print(f"{len(scale_teams_list)} items")
-        return scale_teams_list
+            print(f"{len(resources)} items")
+        return resources
