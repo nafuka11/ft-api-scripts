@@ -82,5 +82,5 @@ poetry run python srcs/user_scale_teams.py dump --cursus_id 21 28 50 -- your_log
 scale_teamsのjsonから、login=your_loginが付けた/付けられたflagを表示
 
 ```bash
-poetry run python srcs/user_scale_teams.py count your_login scale_teams_yyyymmdd-HHMM.json
+poetry run python srcs/user_scale_teams.py count your_login user_scale_teams_your_login_yyyymmdd-HHMM.json
 ```
