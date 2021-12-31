@@ -38,7 +38,7 @@
 ##### ヘルプ
 
 ```bash
-poetry run python src/scale_teams.py -h
+poetry run python srcs/scale_teams.py -h
 ```
 
 ##### 例
@@ -46,19 +46,19 @@ poetry run python src/scale_teams.py -h
 campus_id=26, cursus_id=21,28,50のscale_teamsのデータをjsonに保存
 
 ```bash
-poetry run python src/scale_teams.py dump --campus_id 26 --cursus_id 21 28 50
+poetry run python srcs/scale_teams.py dump --campus_id 26 --cursus_id 21 28 50
 ```
 
 scale_teamsのjsonから、login毎のレビュー数をcsv出力
 
 ```bash
-poetry run python src/scale_teams.py count scale_teams_yyyymmdd-HHMM.json
+poetry run python srcs/scale_teams.py count scale_teams_yyyymmdd-HHMM.json
 ```
 
 csvを元にヒストグラム作成
 
 ```
-poetry run python src/scale_teams.py visualize correctors.csv
+poetry run python srcs/scale_teams.py visualize correctors.csv
 ```
 
 #### 指定loginがレビューした/された時に付けたflagを表示するスクリプト
@@ -68,7 +68,7 @@ poetry run python src/scale_teams.py visualize correctors.csv
 ##### ヘルプ
 
 ```bash
-poetry run python src/user_scale_teams.py -h
+poetry run python srcs/user_scale_teams.py -h
 ```
 
 ##### 例
@@ -76,11 +76,11 @@ poetry run python src/user_scale_teams.py -h
 login=your_login, cursus_id=21,28,50のscale_teamsのデータをjsonに保存
 
 ```bash
-poetry run python src/user_scale_teams.py dump --cursus_id 21 28 50 -- your_login
+poetry run python srcs/user_scale_teams.py dump --cursus_id 21 28 50 -- your_login
 ```
 
 scale_teamsのjsonから、login=your_loginが付けた/付けられたflagを表示
 
 ```bash
-poetry run python src/user_scale_teams.py count your_login scale_teams_yyyymmdd-HHMM.json
+poetry run python srcs/user_scale_teams.py count your_login user_scale_teams_your_login_yyyymmdd-HHMM.json
 ```
