@@ -25,12 +25,13 @@
    poetry install --no-root
    ```
 
-1. `.env` に42 APIのclient uid, secretを記載する。
+1. `.env` に42 APIのclient UID, Secretを記載する。
 
+   `.env.example` を `.env` としてコピーし、
    ```bash
-   echo 'FT_CLIENT_UID="your_uid"' >> .env
-   echo 'FT_CLIENT_SECRET="your_secret"' >> .env
+   cp .env.example .env
    ```
+   `.env` 内の `your_uid` と `your_secret` をご自身のUID, Secretに書き換えてください。
 
 ### 各種スクリプト
 
