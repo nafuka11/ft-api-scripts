@@ -5,7 +5,8 @@
 ## 必要物
 
 - Python >= 3.8
-- Poetry
+- [Poetry](https://python-poetry.org/docs/)
+- [42 APIのUID, Secret](https://api.intra.42.fr/apidoc/guides/getting_started)
 
 ## 使い方
 
