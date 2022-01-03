@@ -111,8 +111,10 @@ poetry run python srcs/campus.py count data/campus.json data/cursus_users_cursus
 ```
 - 以下のファイルが出力されます。
   - `campus_blackholed.csv`
+    - begin_atが現在より前の学生の中で、blackholed_atまたはend_atが現在より前の学生を、BHに吸い込まれた扱いにしています。
 
 `campus_blackholed.csv` からBH率と学生数を表示する
 ```bash
 poetry run python srcs/campus.py visualize data/campus_blackholed.csv
 ```
+- 学生数が15より多いcampusを表示します。
