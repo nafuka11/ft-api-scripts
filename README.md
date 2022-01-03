@@ -105,7 +105,7 @@ poetry run python srcs/campus.py dump --cursus_id 21 --begin_at 2021-01-01T00:00
   - `campus.json`
   - `cursus_users_cursusid_{cursusid}_campusid_{campusid}.json`
 
-`cursus_users_*campusid_*.json` からBH率をカウントする
+`cursus_users_cursusid_21_campusid_*.json` からBH率をカウントする
 ```bash
 poetry run python srcs/campus.py count data/campus.json data/cursus_users_cursusid_21_campusid_*.json
 ```
@@ -114,5 +114,5 @@ poetry run python srcs/campus.py count data/campus.json data/cursus_users_cursus
 
 `campus_blackholed.csv` からBH率と学生数を表示する
 ```bash
-poetry run python srcs/campus.py visualize data/campus_blackholed.csv 
+poetry run python srcs/campus.py visualize data/campus_blackholed.csv
 ```
