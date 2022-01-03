@@ -86,3 +86,33 @@ scale_teamsのjsonから、login=your_loginが付けた/付けられたflagを�
 ```bash
 poetry run python srcs/user_scale_teams.py count your_login user_scale_teams_your_login_yyyymmdd-HHMM.json
 ```
+
+#### 各campusのBH率と学生数を表示するスクリプト
+
+![screenshot](docs/campus.png)
+
+##### ヘルプ
+```bash
+poetry run python srcs/campus.py -h
+```
+
+##### 例
+cursus_id=21, range[begin_at]="2021-01-01T00:00:00.000Z,2042-12-31T23:59:59.999Z" の cursus_users のデータを取得
+```bash
+poetry run python srcs/campus.py dump --cursus_id 21 --begin_at 2021-01-01T00:00:00.000Z 2042-12-31T23:59:59.999Z
+```
+- 以下のファイルが出力されます。
+  - `campus.json`
+  - `cursus_users_cursusid_{cursusid}_campusid_{campusid}.json`
+
+`cursus_users_*campusid_*.json` からBH率をカウントする
+```bash
+poetry run python srcs/campus.py count data/campus.json data/cursus_users_cursusid_21_campusid_*.json
+```
+- 以下のファイルが出力されます。
+  - `campus_blackholed.csv`
+
+`campus_blackholed.csv` からBH率と学生数を表示する
+```bash
+poetry run python srcs/campus.py visualize data/campus_blackholed.csv 
+```
