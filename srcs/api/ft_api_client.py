@@ -36,6 +36,14 @@ class FtApiClient:
         request = self.ft_api.UsersScale_teams(user_id, **kwargs)
         return self._get_resources(request)
 
+    def get_campus(self, kwargs: dict) -> list:
+        request = self.ft_api.Campus(**kwargs)
+        return self._get_resources(request)
+
+    def get_cursus_users(self, kwargs: dict) -> list:
+        request = self.ft_api.Cursus_users(**kwargs)
+        return self._get_resources(request)
+
     def _get_resources(self, request: HttpMethod) -> list:
         resources = []
         while True:
