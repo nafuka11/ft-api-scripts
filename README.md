@@ -131,3 +131,17 @@ poetry run python srcs/campus.py count data/campus.json data/cursus_users_cursus
 poetry run python srcs/campus.py visualize data/campus_blackholed.csv
 ```
 - 学生数が15より多いcampusを表示します。
+
+### 指定campus_id, cursus_idのevents一覧をcsvファイルに保存するスクリプト
+
+#### ヘルプ
+
+```bash
+poetry run python srcs/events.py -h
+```
+
+campus_id=26, cursus_id=21, event名に `AMA` を含むイベントをcsvファフィルに保存
+
+```bash
+poetry run python srcs/events.py 26 21 --name AMA
+```
