@@ -140,7 +140,7 @@ poetry run python srcs/campus.py visualize data/campus_blackholed.csv
 poetry run python srcs/events.py -h
 ```
 
-campus_id=26, cursus_id=21, event名に `AMA` を含むイベントをcsvファフィルに保存
+campus_id=26, cursus_id=21, event名に `AMA` を含むイベントをcsvファイルに保存
 
 ```bash
 poetry run python srcs/events.py 26 21 --name AMA
