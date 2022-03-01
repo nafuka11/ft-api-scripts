@@ -44,6 +44,10 @@ class FtApiClient:
         request = self.ft_api.Cursus_users(**kwargs)
         return self._get_resources(request)
 
+    def get_events(self, campus_id: int, cursus_id: int, kwargs: dict) -> list:
+        request = self.ft_api.CampusCursusEvents(campus_id, cursus_id, **kwargs)
+        return self._get_resources(request)
+
     def _get_resources(self, request: HttpMethod) -> list:
         resources = []
         while True:
