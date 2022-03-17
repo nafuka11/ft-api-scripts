@@ -45,10 +45,10 @@ poetry run python srcs/scale_teams.py -h
 
 #### dump
 
-campus_id=26, cursus_id=21,28,50のscale_teamsのデータをjsonに保存
+campus_id=26, cursus_id=21,28,50, range[begin_at]="2020-06-22T02:00:00.000Z,2042-12-31T23:59:59.999Z"のscale_teamsのデータをjsonに保存
 
 ```bash
-poetry run python srcs/scale_teams.py dump --campus_id 26 --cursus_id 21 28 50
+poetry run python srcs/scale_teams.py dump --campus_id 26 --cursus_id 21 28 50 --begin_at 2020-06-22T02:00:00.000Z 2042-12-31T23:59:59.999Z
 ```
 
 #### count
