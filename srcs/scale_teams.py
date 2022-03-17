@@ -12,6 +12,7 @@ def parse_args() -> None:
     parser_dump = sub_parser.add_parser("dump", help="Dump json of /v2/scale_teams")
     parser_dump.add_argument("--campus_id", type=int, nargs="*")
     parser_dump.add_argument("--cursus_id", type=int, nargs="*")
+    parser_dump.add_argument("--begin_at", type=str, nargs=2, help="filter begin_at")
     parser_dump.set_defaults(func=command_dump)
 
     parser_count = sub_parser.add_parser(
@@ -39,7 +40,7 @@ def parse_args() -> None:
 def command_dump(args: Namespace) -> None:
     from scale_teams.dump_scale_teams import dump_scale_teams
 
-    dump_scale_teams(args.campus_id, args.cursus_id)
+    dump_scale_teams(args.campus_id, args.cursus_id, args.begin_at)
 
 
 def command_count(args: Namespace) -> None:
