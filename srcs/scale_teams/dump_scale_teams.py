@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import List, Optional
 
 from api import FtApiClient
+from utils.file_io import save_json
 
 JSON_FILE_PATH = f"scale_teams_{datetime.now().strftime('%Y%m%d-%H%M')}.json"
 
@@ -28,7 +29,5 @@ def dump_scale_teams(
         kwargs["range"]["begin_at"] = ",".join(begin_at)
         print(f"begin_at: {kwargs['range']['begin_at']}")
     scale_teams = client.get_scale_teams(kwargs)
-    with open(JSON_FILE_PATH, "w") as f:
-        json.dump(scale_teams, f)
 
-    print(f"Dumped scale_teams: {JSON_FILE_PATH}")
+    save_json(JSON_FILE_PATH, scale_teams)
