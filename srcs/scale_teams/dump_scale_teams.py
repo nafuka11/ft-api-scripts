@@ -1,19 +1,21 @@
 import json
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from api import FtApiClient
 
-# TODO: parametrize created_at
-RANGE_CREATED_AT = "2021-01-01T09:00:00.000Z,2022-01-01T08:59:59.999Z"
 JSON_FILE_PATH = f"scale_teams_{datetime.now().strftime('%Y%m%d-%H%M')}.json"
 
 
-def dump_scale_teams(campus_id: List[int], cursus_id: List[int]) -> None:
+def dump_scale_teams(
+    campus_id: Optional[List[int]],
+    cursus_id: Optional[List[int]],
+    begin_at: Optional[List[str]],
+) -> None:
     client = FtApiClient()
     kwargs = {
-        "range": {"created_at": RANGE_CREATED_AT},
-        "sort": "-created_at",
+        "range": {},
+        "sort": "-begin_at",
         "filter": {},
     }
     if campus_id:
@@ -22,6 +24,9 @@ def dump_scale_teams(campus_id: List[int], cursus_id: List[int]) -> None:
     if cursus_id:
         kwargs["filter"]["cursus_id"] = ",".join(map(str, cursus_id))
         print(f"cursus_id: {kwargs['filter']['cursus_id']}")
+    if begin_at:
+        kwargs["range"]["begin_at"] = ",".join(begin_at)
+        print(f"begin_at: {kwargs['range']['begin_at']}")
     scale_teams = client.get_scale_teams(kwargs)
     with open(JSON_FILE_PATH, "w") as f:
         json.dump(scale_teams, f)
